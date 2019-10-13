@@ -14,3 +14,8 @@
 $router->get('/', function () use ($router) {
     return $router->app->version();
 });
+
+$router->get('/profile', ['middleware' => 'auth', 'UserController@profile']);
+
+$router->post('/signup', 'UserController@register');
+$router->post('/signin', 'UserController@login');
